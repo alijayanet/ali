@@ -52,9 +52,9 @@ fi
 #MongoDB
 if !  systemctl is-active --quiet mongod; then
     echo -e "${GREEN}================== Menginstall MongoDB ==================${NC}"
-    curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
+    curl -fsSL https://www.mongodb.org/static/pgp/server-3.4.asc | apt-key add -
     apt-key list
-    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+    echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org jessie/mongodb-org/3.4 Release.gpg" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
     apt update
     apt install mongodb-org -y
     systemctl start mongod.service
